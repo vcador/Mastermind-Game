@@ -119,17 +119,17 @@ namespace ConsoleMastermindGame
             }
 
             int rightPlaceCount = 0;
-            int guessDigit = 0;
-            int randDigit = 0;
+            int guessInputDigit = 0;
+            int rdnDigit = 0;
 
             for (int i = 0; i < 4; i++)
             {
-                guessDigit = userAnswer % 10;
+                guessInputDigit = userAnswer % 10;
                 userAnswer = userAnswer / 10;
-                randDigit = hiddenCode % 10;
+                rdnDigit = hiddenCode % 10;
                 hiddenCode = hiddenCode / 10;
 
-                if (guessDigit == randDigit)
+                if (guessInputDigit == rdnDigit)
                 {
                     userInputArray[i] = true;
                     answerArray[i] = true;
@@ -142,23 +142,23 @@ namespace ConsoleMastermindGame
         public static int IncorrectPlacement(int userGuess, bool[] userInputArray, bool[] answerArray, int hiddenCode)
         {
             int wrongPlaceCount = 0;
-            int guessDigit;
-            int randDigit;
+            int guessInputDigit;
+            int rdnDigit;
 
             for (int i = 0; i < 4; i++)
             {
-                guessDigit = userGuess % 10;
+                guessInputDigit = userGuess % 10;
                 userGuess = userGuess / 10;
-                randDigit = hiddenCode % 10;
+                rdnDigit = hiddenCode % 10;
                 if (userInputArray[i] == false)
                 {
                     for (int j = 0; j < 4; j++)
                     {
-                        randDigit = hiddenCode % 10;
+                        rdnDigit = hiddenCode % 10;
                         hiddenCode = hiddenCode / 10;
                         if (answerArray[j] == false)
                         {
-                            if (guessDigit == randDigit)
+                            if (guessInputDigit == rdnDigit)
                             {
                                 wrongPlaceCount++;
                                 userInputArray[i] = true;
@@ -178,11 +178,11 @@ namespace ConsoleMastermindGame
             try
             {
                 userAnswer = Int32.Parse(userInput);
-                int guessDigit = 0;
+                int guessInputDigit = 0;
                 for (int i = 0; i < 4; i++)
                 {
-                    guessDigit = userAnswer % 10;
-                    if (guessDigit > 6 || guessDigit < 1 || userAnswer < 1111 || userAnswer > 6666)
+                    guessInputDigit = userAnswer % 10;
+                    if (guessInputDigit > 6 || guessInputDigit < 1 || userAnswer < 1111 || userAnswer > 6666)
                     {
                         throw (new Exception());
                     }
