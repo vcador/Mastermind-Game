@@ -15,8 +15,8 @@ namespace ConsoleMastermindGame
                 bool gameWon = false;
 
                 //To compare the two values
-                bool[] userInputArray = { false, false, false, false };
-                bool[] answerArray = { false, false, false, false };
+                bool[] userInputArray = new bool[4];
+                bool[] answerArray = new bool[4];
                 Console.Clear();
 
                 //Guesses Loop
